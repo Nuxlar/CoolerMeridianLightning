@@ -1,10 +1,9 @@
 ﻿{
-	"name": "NewMod",
+	"name": "CoolerMeridianLightning",
 	"version_number": "1.0.0",
 	"website_url": "",
-	"description": "Template",
+	"description": "Improves VFX/SFX of lightning on Prime Meridian",
 	"dependencies": [
-		"bbepis-BepInExPack-5.4.2117",
-		"RiskofThunder-HookGenPatcher-1.2.4"
+		"RiskofThunder-R2API_Sound-1.0.3"
 	]
 }
