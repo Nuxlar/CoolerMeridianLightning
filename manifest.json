@@ -1,7 +1,7 @@
 ﻿{
 	"name": "CoolerMeridianLightning",
-	"version_number": "1.0.0",
-	"website_url": "",
+	"version_number": "1.0.1",
+	"website_url": "https://github.com/Nuxlar/CoolerMeridianLightning/issues",
 	"description": "Improves VFX/SFX of lightning on Prime Meridian",
 	"dependencies": [
 		"RiskofThunder-R2API_Sound-1.0.3"

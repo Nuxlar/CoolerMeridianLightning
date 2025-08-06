@@ -1,8 +1,6 @@
 using BepInEx;
 using RoR2;
 using RoR2.ContentManagement;
-using System.Diagnostics;
-using System.IO;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -14,7 +12,7 @@ namespace CoolerMeridianLightning
         public const string PluginGUID = PluginAuthor + "." + PluginName;
         public const string PluginAuthor = "Nuxlar";
         public const string PluginName = "CoolerMeridianLightning";
-        public const string PluginVersion = "1.0.0";
+        public const string PluginVersion = "1.0.1";
 
         internal static Main Instance { get; private set; }
         public static string PluginDirectory { get; private set; }
@@ -35,18 +33,16 @@ namespace CoolerMeridianLightning
                 GameObject prefab = x.Result;
                 LightningStrikeInstance instance = prefab.GetComponent<LightningStrikeInstance>(); // blastRadius = 6
                 instance.impactEffectPrefab.GetComponent<EffectComponent>().soundName = "Play_lightning_nux";
-                instance.impactEffectPrefab.transform.GetChild(6).localScale = new Vector3(1.5f, 1.5f, 1.5f);
-                instance.impactEffectPrefab.transform.GetChild(11).localScale = new Vector3(1.5f, 1.5f, 1.5f);
+                instance.impactEffectPrefab.transform.GetChild(6).localScale = new Vector3(1.25f, 1.25f, 1.25f);
+                instance.impactEffectPrefab.transform.GetChild(11).localScale = new Vector3(1.25f, 1.25f, 1.25f);
                 instance.impactEffectPrefab.transform.GetChild(4).gameObject.SetActive(false);
                 instance.impactEffectPrefab.transform.GetChild(7).gameObject.SetActive(false);
                 ParticleSystemRenderer psr1 = instance.impactEffectPrefab.transform.GetChild(6).GetComponent<ParticleSystemRenderer>();
                 ParticleSystemRenderer psr2 = instance.impactEffectPrefab.transform.GetChild(11).GetComponent<ParticleSystemRenderer>();
-                psr1.maxParticleSize = 1f;
-                psr2.maxParticleSize = 1f;
+                psr1.maxParticleSize = 0.75f;
+                psr2.maxParticleSize = 0.75f;
                 foreach (ParticleSystem item in instance.impactEffectPrefab.transform.GetComponentsInChildren<ParticleSystem>())
                 {
-                    UnityEngine.Debug.LogWarning(item.gameObject.name);
-                    UnityEngine.Debug.LogWarning(item.main.duration);
                     ParticleSystem.MainModule main = item.main;
                     main.duration *= 2f;
                     main.startLifetimeMultiplier *= 2f;
